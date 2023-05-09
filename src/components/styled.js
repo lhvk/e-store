@@ -1,26 +1,25 @@
 import styled from "styled-components";
 import { FaShoppingCart } from "react-icons/fa";
 
-export const MainContainer = styled.div`
-  height: 500px;
-`;
-
 export const Navigation = styled.header`
-  background-color: ${(props) => props.theme.color.primary};
-  height: 80px;
-  padding: 0 50px;
-`;
+  height: 100px;
+  padding: 0;
 
-export const FooterContainer = styled.footer`
-  background-color: ${(props) => props.theme.color.primary};
-  height: 80px;
+  @media (max-width: 1920px) {
+    padding: 0 50px;
+  }
 `;
 
 export const Logo = styled.div`
-  color: ${(props) => props.theme.color.secondary};
-  font-size: 20;
-  font-weight: bold;
+  font-family: ${(props) => props.theme.font.tertiary};
+  color: ${(props) => props.theme.color.primary};
+  font-size: 2.2rem;
   letter-spacing: 1px;
+  transition: 0.4s;
+
+  &:hover {
+    filter: drop-shadow(0 0 0.75rem ${(props) => props.theme.color.secondary});
+  }
 `;
 
 export const ShoppingCartContainer = styled.button`
@@ -34,27 +33,28 @@ export const ShoppingCartContainer = styled.button`
     transform: rotate(25deg);
     .count-badge {
       transform: rotate(335deg);
-      bottom: 5px;
-      left: 25px;
+      bottom: 15px;
+      left: 30px;
     }
   }
 `;
 
 export const ShoppingCart = styled(FaShoppingCart)`
-  color: ${(props) => props.theme.color.secondary};
+  color: ${(props) => props.theme.color.primary};
   font-size: 25px;
 `;
 
 export const CountBadge = styled.div`
   display: ${(props) => (props.$hasContent ? "flex" : "none")};
+  font-weight: 700;
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background-color: #eb0000;
-  color: #fff;
+  background-color: ${(props) => props.theme.color.secondary};
+  color: ${(props) => props.theme.color.primary};
   bottom: 18px;
   left: 18px;
   transition: 1s;

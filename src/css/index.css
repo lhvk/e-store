@@ -1,0 +1,35 @@
+/* CSS RESET */
+
+:root {
+  --ff-primary: "Source Sans Pro", sans-serif;
+  --ff-secondary: "Oswald", sans-serif;
+  --ff-tertiary: "Monoton", cursive;
+
+  --clr-primary: #011627;
+  --clr-secondary: #2ec4b6;
+  --clr-tertiary: #fdfffc;
+  --clr-text: #000;
+
+  --clr-primaryLight: #012f4b;
+  --clr-secondaryLight: #6adcd1;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--ff-primary);
+}
+
+body {
+  background-color: var(--clr-tertiary);
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--ff-secondary);
+}
