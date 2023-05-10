@@ -1,6 +1,7 @@
 import React from "react";
 import { Flex } from "../../index.styles";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const FooterContainer = styled.footer`
   height: 100px;
@@ -13,7 +14,10 @@ export function Footer() {
   return (
     <FooterContainer>
       <Flex justifyContent="center" alignItems="center" h="100%">
-        lhvk 2023 &copy;
+        <div>
+          <Link to="/contact">contact</Link>
+          <p>lhvk 2023 &copy;</p>
+        </div>
       </Flex>
     </FooterContainer>
   );

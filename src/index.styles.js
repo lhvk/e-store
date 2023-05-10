@@ -63,8 +63,3 @@ export const Flex = styled.div`
   height: ${(props) => props.h};
   width: ${(props) => props.w};
 `;
-
-export const Link = styled.a`
-  color: ${(props) => props.theme.color.primary};
-  text-decoration: none;
-`;

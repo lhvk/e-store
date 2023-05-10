@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
-import { Hero } from "../Hero";
+import { Outlet } from "react-router-dom";
 
 const ContentWrapper = styled.div`
   padding-bottom: 100px;
@@ -19,7 +19,7 @@ export function Layout() {
       <PageContainer>
         <ContentWrapper>
           <Header />
-          <Hero />
+          <Outlet />
         </ContentWrapper>
         <Footer />
       </PageContainer>

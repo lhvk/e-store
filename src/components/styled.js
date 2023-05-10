@@ -3,10 +3,13 @@ import { FaShoppingCart } from "react-icons/fa";
 
 export const Navigation = styled.header`
   height: 100px;
-  padding: 0;
 
   @media (max-width: 1920px) {
     padding: 0 50px;
+  }
+
+  @media (max-width: 420px) {
+    padding: 0 10px;
   }
 `;
 

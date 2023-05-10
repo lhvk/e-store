@@ -33,3 +33,7 @@ h3,
 h4 {
   font-family: var(--ff-secondary);
 }
+
+a {
+  text-decoration: none;
+}
