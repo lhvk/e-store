@@ -1,4 +1,6 @@
-/* CSS RESET */
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
 
 :root {
   --ff-primary: "Source Sans Pro", sans-serif;
@@ -34,6 +36,11 @@ h4 {
   font-family: var(--ff-secondary);
 }
 
+li {
+  list-style: none;
+}
+
 a {
   text-decoration: none;
 }
+`;

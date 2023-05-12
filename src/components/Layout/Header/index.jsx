@@ -1,16 +1,13 @@
 import React from "react";
-import { Flex } from "../../index.styles";
-import { CountBadge, Logo, Navigation, ShoppingCart, ShoppingCartContainer } from "../styled";
-import { useMediaQuery } from "../../utils";
+import { CountBadge, Logo, Navigation, ShoppingCart, ShoppingCartContainer } from "./index.styles";
 import { Link } from "react-router-dom";
+import { Flex } from "../../Flex";
 
 export function Header() {
-  const isMediumScreen = useMediaQuery("(max-width: 1920px)");
-
   return (
-    <Navigation isMediumScreen={isMediumScreen}>
+    <Navigation>
       <Flex alignItems="center" h="100%" justifyContent="space-between">
-        <Link to="home">
+        <Link to="/">
           <Logo>e-store</Logo>
         </Link>
 

@@ -1,52 +1,51 @@
-import styled from "styled-components";
-import { useFetch } from "../../api/useFetch";
-import { Hero } from "../../components/Hero";
+import { useProductsFetch } from "../../hooks/useFetch";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
+import { Hero } from "../../components/Layout/Hero";
 import { Link } from "react-router-dom";
-
-const ProductCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  border-radius: 10px;
-  min-height: 400px;
-  max-width: 300px;
-`;
-
-const CardHeader = styled.img`
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  width: 100%;
-  object-fit: contain;
-`;
+import { CardFooter, CardHeader, CardImage, OnSaleBadge, ProductCard, ProductsListContainer } from "./index.styles";
+import { Flex } from "../../components/Flex";
+import { Loader } from "../../components/Loader";
 
 export function HomePage() {
+  const isLargeScreen = useMediaQuery("(min-width: 1920px");
   const url = "https://api.noroff.dev/api/v1/online-shop";
-  const { data: products, isLoading, isError } = useFetch(url);
+  const { data: products, isLoading, isError } = useProductsFetch(url);
 
-  console.log(products);
+  if (isLoading || !products) {
+    return <Loader />;
+  }
+
+  if (isError) {
+    return <Flex justifyContent="center">An error occured..</Flex>;
+  }
 
   return (
     <>
       <Hero />
-      <section style={{ margin: "50px", display: "grid", gap: "20px" }}>
-        {isLoading && <div>Loading..</div>}
+      <ProductsListContainer id="product-list-container" margin={isLargeScreen ? "50px 0" : "50px"}>
+        {products.map((p) => (
+          <li key={p.id}>
+            <Link to={`product/${p.id}`}>
+              <ProductCard>
+                <CardHeader>
+                  <CardImage className="card-img" src={p.imageUrl} />
+                  <OnSaleBadge display={p.discountedPrice < p.price ? "flex" : "none"}>Sale</OnSaleBadge>
+                </CardHeader>
 
-        {isError && <div>An error occured..</div>}
-
-        {!isLoading && !isError && (
-          <>
-            {products.map((p) => (
-              <Link to="product/:id">
-                <ProductCard>
-                  <CardHeader src={p.imageUrl} />
-                </ProductCard>
-              </Link>
-            ))}
-          </>
-        )}
-      </section>
+                <CardFooter>
+                  <div className="footer-content">
+                    <h2 className="card-title">{p.title}</h2>
+                    <p>Price: ${p.price}</p>
+                    {p.discountedPrice < p.price ? <p>Now: ${p.discountedPrice}</p> : ""}
+                    <p>Rating: {p.rating}</p>
+                    <p>Tags: {p.tags}</p>
+                  </div>
+                </CardFooter>
+              </ProductCard>
+            </Link>
+          </li>
+        ))}
+      </ProductsListContainer>
     </>
   );
 }

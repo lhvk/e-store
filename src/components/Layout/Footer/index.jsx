@@ -1,14 +1,7 @@
 import React from "react";
-import { Flex } from "../../index.styles";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
-
-const FooterContainer = styled.footer`
-  height: 100px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-`;
+import { FooterContainer } from "./index.styles";
+import { Flex } from "../../Flex";
 
 export function Footer() {
   return (

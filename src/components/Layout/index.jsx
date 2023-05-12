@@ -1,17 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-import { Header } from "../Header";
-import { Footer } from "../Footer";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 import { Outlet } from "react-router-dom";
-
-const ContentWrapper = styled.div`
-  padding-bottom: 100px;
-`;
-
-const PageContainer = styled.div`
-  position: relative;
-  min-height: 100vh;
-`;
+import { ContentWrapper, PageContainer } from "./index.styles";
 
 export function Layout() {
   return (
