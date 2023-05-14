@@ -48,7 +48,10 @@ const LoadingAnimation = styled(Flex)`
 
 export function Loader() {
   return (
-    <LoadingAnimation justifyContent="center" alignItems="center" h="100%">
+    <LoadingAnimation
+      justifyContent="center"
+      alignItems="center"
+      h="100%">
       <div class="circle circle-1"></div>
       <div class="circle circle-2"></div>
       <div class="circle circle-3"></div>

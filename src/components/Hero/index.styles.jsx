@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import hero from "../../../img/hero.jpg";
-import { Flex } from "../../Flex";
+import hero from "../../assets/img/hero.jpg";
+import { Flex } from "../../components";
 
 export const HeroBanner = styled.div`
   background-color: ${(props) => props.theme.color.secondary};

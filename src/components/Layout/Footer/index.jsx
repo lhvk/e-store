@@ -6,7 +6,10 @@ import { Flex } from "../../Flex";
 export function Footer() {
   return (
     <FooterContainer>
-      <Flex justifyContent="center" alignItems="center" h="100%">
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        h="100%">
         <div>
           <Link to="/contact">contact</Link>
           <p>lhvk 2023 &copy;</p>

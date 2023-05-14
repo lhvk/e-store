@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 const ButtonTemplate = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 0;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 18px;
-  padding: 0.25em 0.75em;
-  min-width: 10ch;
+  font-size: 1.8rem;
+  padding: ${(props) => props.padding || "0.25em 0.75em"};
+  min-width: ${(props) => props.minWidth || "10ch"};
   min-height: 44px;
   transition: 220ms all ease-in-out;
   text-align: center;

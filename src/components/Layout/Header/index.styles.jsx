@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaShoppingCart } from "react-icons/fa";
+import { IconCart } from "../../../assets/svg";
 
 export const Navigation = styled.header`
   height: 100px;
@@ -16,7 +16,7 @@ export const Navigation = styled.header`
 export const Logo = styled.div`
   font-family: ${(props) => props.theme.font.tertiary};
   color: ${(props) => props.theme.color.primary};
-  font-size: 2.2rem;
+  font-size: 3.8rem;
   letter-spacing: 1px;
   transition: 0.4s;
 
@@ -36,15 +36,16 @@ export const ShoppingCartContainer = styled.button`
     transform: rotate(25deg);
     .count-badge {
       transform: rotate(335deg);
-      bottom: 15px;
-      left: 30px;
+      bottom: 18px;
+      left: 40px;
     }
   }
 `;
 
-export const ShoppingCart = styled(FaShoppingCart)`
+export const ShoppingCart = styled(IconCart)`
   color: ${(props) => props.theme.color.primary};
-  font-size: 25px;
+  height: 38px;
+  width: 38px;
 `;
 
 export const CountBadge = styled.div`
@@ -58,7 +59,7 @@ export const CountBadge = styled.div`
   border-radius: 50%;
   background-color: ${(props) => props.theme.color.secondary};
   color: ${(props) => props.theme.color.primary};
-  bottom: 18px;
-  left: 18px;
+  bottom: 26px;
+  left: 24px;
   transition: 1s;
 `;

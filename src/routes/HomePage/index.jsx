@@ -1,15 +1,25 @@
-import { useProductsFetch } from "../../hooks/useFetch";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { Hero } from "../../components/Layout/Hero";
+import React, { useState } from "react";
+import { Box, Button, Flex, Hero, Loader } from "../../components";
+import { Helmet } from "react-helmet-async";
+import { useMediaQuery, useProductsFetch } from "../../hooks";
+import { ProductsListContainer, ProductCard, CardHeader, CardImage, OnSaleBadge, CardFooter, ButtonContainer } from "./index.styles";
 import { Link } from "react-router-dom";
-import { CardFooter, CardHeader, CardImage, OnSaleBadge, ProductCard, ProductsListContainer } from "./index.styles";
-import { Flex } from "../../components/Flex";
-import { Loader } from "../../components/Loader";
+import { calcDiscount, starRating } from "../../utils";
+import { IconCartOutline } from "../../assets/svg";
 
 export function HomePage() {
+  const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
   const isLargeScreen = useMediaQuery("(min-width: 1920px");
-  const url = "https://api.noroff.dev/api/v1/online-shop";
-  const { data: products, isLoading, isError } = useProductsFetch(url);
+
+  console.log(cart);
+
+  const { data: products, isLoading, isError } = useProductsFetch("https://api.noroff.dev/api/v1/online-shop");
+
+  function addToCart(product) {
+    setCart((current) => [...current, product.title]);
+    setTotal((current) => current + product.price);
+  }
 
   if (isLoading || !products) {
     return <Loader />;
@@ -21,25 +31,47 @@ export function HomePage() {
 
   return (
     <>
+      <Helmet>
+        <title>E-store | Home</title>
+      </Helmet>
       <Hero />
-      <ProductsListContainer id="product-list-container" margin={isLargeScreen ? "50px 0" : "50px"}>
+      <ProductsListContainer
+        id="product-list-container"
+        margin={isLargeScreen ? "50px 0" : "50px"}>
         {products.map((p) => (
           <li key={p.id}>
             <Link to={`product/${p.id}`}>
               <ProductCard>
                 <CardHeader>
-                  <CardImage className="card-img" src={p.imageUrl} />
+                  <CardImage
+                    className="card-img"
+                    src={p.imageUrl}
+                  />
                   <OnSaleBadge display={p.discountedPrice < p.price ? "flex" : "none"}>Sale</OnSaleBadge>
                 </CardHeader>
 
                 <CardFooter>
-                  <div className="footer-content">
-                    <h2 className="card-title">{p.title}</h2>
-                    <p>Price: ${p.price}</p>
-                    {p.discountedPrice < p.price ? <p>Now: ${p.discountedPrice}</p> : ""}
-                    <p>Rating: {p.rating}</p>
-                    <p>Tags: {p.tags}</p>
-                  </div>
+                  <Box mb="8px">
+                    <h2>{p.title}</h2>
+                    {starRating(p.rating, "18px")}
+                  </Box>
+
+                  {calcDiscount(p.price, p.discountedPrice)}
+
+                  <ButtonContainer>
+                    <Button
+                      primary
+                      minWidth="unset"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        addToCart(p);
+                      }}>
+                      <IconCartOutline
+                        width="32px"
+                        height="32px"
+                      />
+                    </Button>
+                  </ButtonContainer>
                 </CardFooter>
               </ProductCard>
             </Link>

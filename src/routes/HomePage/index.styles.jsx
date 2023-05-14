@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import { Box } from "../../components/Box";
 
 export const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 600px;
   overflow: hidden;
 
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -23,8 +23,9 @@ export const CardImage = styled.img`
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   object-fit: cover;
+  height: 300px;
   width: 100%;
-  height: 400px;
+  margin-bottom: 30px;
 
   transition: all ease-in-out 0.4s;
 `;
@@ -47,13 +48,11 @@ export const OnSaleBadge = styled.div`
 `;
 
 export const CardFooter = styled.div`
+  padding: 20px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-
-  color: ${(props) => props.theme.color.text};
+  height: 200px;
 
   & h2 {
     color: ${(props) => props.theme.color.primary};
@@ -63,8 +62,13 @@ export const CardFooter = styled.div`
 export const ProductsListContainer = styled.ul`
   --min-column-size: 300px;
   display: grid;
-  gap: 1rem;
+  gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(min(var(--min-column-size), 100%), 1fr));
 
   margin: ${(props) => props.margin};
+`;
+
+export const ButtonContainer = styled(Box)`
+  position: absolute;
+  bottom: 20px;
 `;
