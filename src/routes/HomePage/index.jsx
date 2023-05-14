@@ -13,6 +13,7 @@ export function HomePage() {
   const isLargeScreen = useMediaQuery("(min-width: 1920px");
 
   console.log(cart);
+  console.log(total);
 
   const { data: products, isLoading, isError } = useProductsFetch("https://api.noroff.dev/api/v1/online-shop");
 
