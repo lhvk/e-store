@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box } from "../../components/Box";
+import { Flex } from "../../components";
 
 export const ProductCard = styled.div`
   display: flex;
@@ -68,7 +68,8 @@ export const ProductsListContainer = styled.ul`
   margin: ${(props) => props.margin};
 `;
 
-export const ButtonContainer = styled(Box)`
+export const ButtonContainer = styled(Flex)`
+  gap: 5px;
   position: absolute;
   bottom: 20px;
 `;

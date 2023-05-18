@@ -5,7 +5,7 @@ const ButtonTemplate = styled.button`
   justify-content: center;
   align-items: center;
   border: 0;
-  border-radius: 10px;
+  border-radius: ${(props) => (props.borderRadius ? props.borderRadius : "10px")};
   cursor: pointer;
   font-size: 1.8rem;
   padding: ${(props) => props.padding || "0.25em 0.75em"};
@@ -14,6 +14,7 @@ const ButtonTemplate = styled.button`
   transition: 220ms all ease-in-out;
   text-align: center;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+  width: ${(props) => props.minWidth};
 `;
 
 export const Button = styled(ButtonTemplate)`
@@ -24,6 +25,7 @@ export const Button = styled(ButtonTemplate)`
   background-color: ${(props) => (props.secondary ? props.theme.color.secondary : null)};
 
   :hover {
+    background-color: #ddd;
     background-color: ${(props) => (props.primary ? props.theme.color.primaryLight : null)};
     background-color: ${(props) => (props.secondary ? props.theme.color.secondaryLight : null)};
   }

@@ -1,14 +1,14 @@
-import React from "react";
 import { CountBadge, Logo, Navigation, ShoppingCart, ShoppingCartContainer } from "./index.styles";
 import { Link, useNavigate } from "react-router-dom";
 import { Flex } from "../../Flex";
 import { Button } from "../../Buttons";
 import { Box } from "../../Box";
-import { useMediaQuery } from "../../../hooks/useMediaQuery";
+import { useShoppingCart } from "../../../context/ShoppingCartContext";
 
 export function Header() {
-  const isMobile = useMediaQuery("(max-width: 420px)");
   const goBack = useNavigate();
+  const { getCartQuantity } = useShoppingCart();
+
   return (
     <>
       <Navigation>
@@ -28,8 +28,8 @@ export function Header() {
                 <ShoppingCart />
                 <CountBadge
                   className="count-badge"
-                  $hasContent={true}>
-                  4
+                  $hasContent={getCartQuantity()}>
+                  {getCartQuantity()}
                 </CountBadge>
               </ShoppingCartContainer>
             </Link>
@@ -37,10 +37,8 @@ export function Header() {
         </Flex>
       </Navigation>
 
-      {window.location.pathname !== "/" && (
-        <Box
-          ml={isMobile ? "10px" : "50px"}
-          mb={"10px"}>
+      {window.location.pathname !== "/" && window.location.pathname !== "/success" && (
+        <Box mb={"10px"}>
           <Button
             secondary
             onClick={() => {

@@ -3,11 +3,14 @@ import { messages } from "../../messages";
 import { ProductContainer, ProductSection } from "./index.styles";
 import { Box, Button, Flex, Loader } from "../../components";
 import { useMediaQuery, useProductFetch } from "../../hooks";
-import { calcDiscount, starRating } from "../../utils";
+import { calcDiscount, productAdded, starRating } from "../../utils";
 import { IconCartOutline } from "../../assets/svg";
+import { useShoppingCart } from "../../context/ShoppingCartContext";
 
 export function ProductPage() {
+  const { incrementCartQuantity } = useShoppingCart();
   const isMobile = useMediaQuery("(max-width: 420px)");
+
   const { data: product, isLoading, isError } = useProductFetch();
 
   if (isLoading || !product) {
@@ -25,7 +28,7 @@ export function ProductPage() {
       </Helmet>
 
       <ProductSection>
-        <ProductContainer>
+        <ProductContainer key={product.id}>
           <Box style={{ maxWidth: "600px" }}>
             <img
               src={product.imageUrl}
@@ -47,19 +50,25 @@ export function ProductPage() {
             <Box>
               <h2>Reviews</h2>
               {product.reviews.length > 0 ? (
-                product.reviews.map((x) => (
+                product.reviews.map((review) => (
                   <>
-                    <h3>{x.username}</h3>
+                    <h3>{review.username}</h3>
                     <div>{starRating(product.rating, "18px")}</div>
-                    <p>{x.description}</p>
+                    <p>{review.description}</p>
                   </>
                 ))
               ) : (
                 <p>{messages.noReviews}</p>
               )}
             </Box>
-            <Box mt="20px">
+            <Flex
+              mt="20px"
+              gap="10px">
               <Button
+                onClick={() => {
+                  incrementCartQuantity(product.id, product.title, product.imageUrl, product.price, product.discountedPrice);
+                  productAdded(product.title);
+                }}
                 primary
                 minWidth="19ch">
                 <IconCartOutline
@@ -68,7 +77,7 @@ export function ProductPage() {
                 />
                 Add to cart
               </Button>
-            </Box>
+            </Flex>
           </Flex>
         </ProductContainer>
       </ProductSection>

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import "react-toastify/dist/ReactToastify.css";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -15,9 +16,20 @@ export const GlobalStyle = createGlobalStyle`
   --clr-primaryLight: #012f4b;
   --clr-secondaryLight: #6adcd1;
 
+  --toastify-color-success: var(--clr-secondary);
+  --toastify-z-index: 9999999999;
+
   font-family: var(--ff-primary);
   color: var(--clr-primary);
   font-size: 62%;
+
+  @media (max-width: 1920px) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: 420px) {
+    padding: 0 10px;
+  }
 }
 
 * {

@@ -3,14 +3,6 @@ import { IconCart } from "../../../assets/svg";
 
 export const Navigation = styled.header`
   height: 100px;
-
-  @media (max-width: 1920px) {
-    padding: 0 50px;
-  }
-
-  @media (max-width: 420px) {
-    padding: 0 10px;
-  }
 `;
 
 export const Logo = styled.div`
@@ -54,8 +46,8 @@ export const CountBadge = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 2.2rem;
+  height: 2.2rem;
   border-radius: 50%;
   background-color: ${(props) => props.theme.color.secondary};
   color: ${(props) => props.theme.color.primary};

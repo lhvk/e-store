@@ -12,7 +12,7 @@ export const HeroBanner = styled.div`
   padding-top: 200px;
   padding-bottom: 200px;
   background-blend-mode: multiply;
-  }
+  margin-bottom: 5rem;
 `;
 
 export const HeroContainer = styled(Flex)`

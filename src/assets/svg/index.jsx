@@ -1,3 +1,4 @@
+export { IconBin } from "./IconBin";
 export { IconCart } from "./IconCart";
 export { IconCartOutline } from "./IconCartOutline";
 export { IconStarHalf } from "./IconStarHalf";
