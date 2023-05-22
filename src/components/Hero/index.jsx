@@ -12,7 +12,11 @@ export function Hero() {
         alignItems="center">
         <h1>{messages.welcome}</h1>
         <p>{messages.subTitle}</p>
-        <Button primary>Explore</Button>
+        <Button
+          primary
+          onClick={() => console.log("hey")}>
+          Explore
+        </Button>
       </HeroContainer>
     </HeroBanner>
   );
