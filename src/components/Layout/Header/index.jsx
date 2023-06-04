@@ -2,7 +2,6 @@ import { BackButton, CountBadge, Logo, Navigation, ShoppingCart, ShoppingCartCon
 import { Link, useNavigate } from "react-router-dom";
 import { Flex } from "../../Flex";
 import { Button } from "../../Buttons";
-import { Box } from "../../Box";
 import { useShoppingCart } from "../../../context/ShoppingCartContext";
 
 export function Header() {

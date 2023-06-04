@@ -1,17 +1,7 @@
 import { Box, Button, Flex, Hero, Loader } from "../../components";
 import { Helmet } from "react-helmet-async";
 import { useProductsFetch } from "../../hooks";
-import {
-  ProductsListContainer,
-  ProductCard,
-  CardHeader,
-  CardImage,
-  OnSaleBadge,
-  CardFooter,
-  ButtonContainer,
-  SearchBar,
-  CardListItem,
-} from "./index.styles";
+import { ProductsListContainer, ProductCard, CardHeader, CardImage, OnSaleBadge, CardFooter, ButtonContainer, SearchBar } from "./index.styles";
 import { Link } from "react-router-dom";
 import { calcDiscount, productAdded, starRating } from "../../utils";
 import { IconCartOutline } from "../../assets/svg";

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { IconCart } from "../../../assets/svg";
-import { Box } from "../../Box";
 
 export const Navigation = styled.header`
   height: 100px;
