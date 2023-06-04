@@ -22,14 +22,6 @@ export const GlobalStyle = createGlobalStyle`
   font-family: var(--ff-primary);
   color: var(--clr-primary);
   font-size: 62%;
-
-  @media (max-width: 1920px) {
-    padding: 0 50px;
-  }
-
-  @media (max-width: 420px) {
-    padding: 0 10px;
-  }
 }
 
 * {
@@ -43,6 +35,16 @@ body {
   background-color: var(--clr-tertiary);
   max-width: 1920px;
   margin: 0 auto;
+}
+
+main {
+  @media (max-width: 1920px) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 10px;
+  }
 }
 
 h1,

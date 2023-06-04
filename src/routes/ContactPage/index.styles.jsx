@@ -5,7 +5,7 @@ export const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  min-width: ${(props) => (props.isMobile ? "100%" : "500px")};
+  width: ${(props) => (props.isMobile = "100%")};
   max-width: 500px;
 
   p {

@@ -11,8 +11,8 @@ export function Layout() {
         <ContentWrapper>
           <Header />
           <Outlet />
+          <Footer />
         </ContentWrapper>
-        <Footer />
       </PageContainer>
     </>
   );

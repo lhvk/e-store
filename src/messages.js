@@ -1,4 +1,4 @@
-// In order to not polute the code with long strings I decided to have a message file
+// In order to not pollute the code with long strings I decided to have a message file
 // for them
 
 export const messages = {

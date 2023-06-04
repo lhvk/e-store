@@ -1,11 +1,37 @@
 import styled from "styled-components";
 import { Flex } from "../../components";
 
+// Product container
+
+export const ProductsListContainer = styled.ul`
+  --min-column-size: 350px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--min-column-size), 100%), 1fr));
+
+  gap: 20px;
+  margin-bottom: 100px;
+`;
+
+// Searchbar
+
+export const SearchBar = styled.input`
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 1.6rem;
+  height: 50px;
+  max-width: 435px;
+  border-radius: 8px;
+  border: 2px solid ${(props) => props.theme.color.secondary};
+  padding: 10px;
+`;
+
+// Card
 export const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  max-width: 435px;
 
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px;
@@ -59,28 +85,8 @@ export const CardFooter = styled.div`
   }
 `;
 
-export const ProductsListContainer = styled.ul`
-  --min-column-size: 300px;
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(min(var(--min-column-size), 100%), 1fr));
-
-  margin: ${(props) => props.margin};
-`;
-
 export const ButtonContainer = styled(Flex)`
   gap: 5px;
   position: absolute;
   bottom: 20px;
-`;
-
-export const SearchBar = styled.input`
-  margin-bottom: 20px;
-  width: 100%;
-  font-size: 1.6rem;
-  height: 50px;
-  max-width: 500px;
-  border-radius: 8px;
-  border: 2px solid ${(props) => props.theme.color.secondary};
-  padding: 10px;
 `;

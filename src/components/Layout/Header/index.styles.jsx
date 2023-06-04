@@ -1,8 +1,17 @@
 import styled from "styled-components";
 import { IconCart } from "../../../assets/svg";
+import { Box } from "../../Box";
 
 export const Navigation = styled.header`
   height: 100px;
+
+  @media (max-width: 1920px) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 10px;
+  }
 `;
 
 export const Logo = styled.div`
@@ -54,4 +63,16 @@ export const CountBadge = styled.div`
   bottom: 26px;
   left: 24px;
   transition: 1s;
+`;
+
+export const BackButton = styled.div`
+  margin-bottom: 10px;
+
+  @media (max-width: 1920px) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 10px;
+  }
 `;

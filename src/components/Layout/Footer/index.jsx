@@ -11,8 +11,10 @@ export function Footer() {
         alignItems="center"
         h="100%">
         <div>
-          <Link to="/contact">contact</Link>
-          <p>lhvk 2023 &copy;</p>
+          <Link to="/contact">
+            <h2>contact</h2>
+          </Link>
+          <p>lhvk {new Date().getFullYear()} &copy;</p>
         </div>
       </Flex>
     </FooterContainer>

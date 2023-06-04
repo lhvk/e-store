@@ -16,78 +16,81 @@ export function CheckoutPage() {
     }, 0);
 
   return (
-    <section>
-      <h1>Cart</h1>
-      {cart.length > 0 ? (
-        <>
-          <ul>
-            {cart.map((product) => (
-              <>
-                <ListItem key={product.id}>
-                  <Flex
-                    mb="20px"
-                    justifyContent="space-between"
-                    alignItems="flex-start">
-                    <Flex gap="20px">
-                      <div style={{ width: "200px", height: "200px" }}>
-                        <img
-                          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                          src={product.imageUrl}
-                          alt={product.description}
-                        />
-                      </div>
+    <main>
+      <section>
+        <h1>Cart</h1>
 
-                      <div>
-                        <h2>{product.title}</h2>
-                        <p style={{ color: "rgba(0,0,0,0.55" }}>kr {product.price}</p>
-                      </div>
-                    </Flex>
-
+        {cart.length > 0 ? (
+          <>
+            <ul>
+              {cart.map((product) => (
+                <>
+                  <ListItem key={product.id}>
                     <Flex
-                      alignItems="center"
-                      gap="20px">
-                      <div>
-                        <CounterButton
-                          product={product}
-                          incrementCartQuantity={incrementCartQuantity}
-                          decrementCartQuantity={decrementCartQuantity}
-                        />
-                      </div>
-                      <div>kr {product.totalPrice}</div>
-                      <div>
-                        <Button
-                          minWidth="50px"
-                          onClick={() => removeFromCart(product.id)}>
-                          <IconBin />
-                        </Button>
-                      </div>
+                      mb="20px"
+                      justifyContent="space-between"
+                      alignItems="flex-start">
+                      <Flex gap="20px">
+                        <div style={{ width: "200px", height: "200px" }}>
+                          <img
+                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                            src={product.imageUrl}
+                            alt={product.description}
+                          />
+                        </div>
+
+                        <div>
+                          <h2>{product.title}</h2>
+                          <p style={{ color: "rgba(0,0,0,0.55" }}>kr {product.price}</p>
+                        </div>
+                      </Flex>
+
+                      <Flex
+                        alignItems="center"
+                        gap="20px">
+                        <div>
+                          <CounterButton
+                            product={product}
+                            incrementCartQuantity={incrementCartQuantity}
+                            decrementCartQuantity={decrementCartQuantity}
+                          />
+                        </div>
+                        <div>kr {product.totalPrice}</div>
+                        <div>
+                          <Button
+                            minWidth="50px"
+                            onClick={() => removeFromCart(product.id)}>
+                            <IconBin />
+                          </Button>
+                        </div>
+                      </Flex>
                     </Flex>
-                  </Flex>
-                </ListItem>
-              </>
-            ))}
-          </ul>
-          <Flex
-            justifyContent="space-between"
-            mb="20px">
-            <h3>Total products: {getCartQuantity()}</h3>
+                  </ListItem>
+                </>
+              ))}
+            </ul>
+            <Flex
+              justifyContent="space-between"
+              mb="20px">
+              <h3>Total products: {getCartQuantity()}</h3>
 
-            <h3>Total sum: kr {total.toFixed(2)}</h3>
-          </Flex>
+              <h3>Total sum: kr {total.toFixed(2)}</h3>
+            </Flex>
 
-          <Flex justifyContent="flex-end">
-            <Link to="/success">
-              <Button
-                primary
-                onClick={() => setCart([])}>
-                Proceed to checkout
-              </Button>
-            </Link>
-          </Flex>
-        </>
-      ) : (
-        <div>{messages.emptyCart}</div>
-      )}
-    </section>
+            <Flex justifyContent="flex-end">
+              <Link to="/success">
+                <Button
+                  primary
+                  onClick={() => setCart([])}>
+                  Proceed to checkout
+                </Button>
+              </Link>
+            </Flex>
+          </>
+        ) : (
+          <div>{messages.emptyCart}</div>
+        )}
+      </section>
+    </main>
   );
 }
