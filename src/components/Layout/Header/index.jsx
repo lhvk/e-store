@@ -1,4 +1,11 @@
-import { BackButton, CountBadge, Logo, Navigation, ShoppingCart, ShoppingCartContainer } from "./index.styles";
+import {
+  BackButton,
+  CountBadge,
+  Logo,
+  Navigation,
+  ShoppingCart,
+  ShoppingCartContainer,
+} from "./index.styles";
 import { Link, useNavigate } from "react-router-dom";
 import { Flex } from "../../Flex";
 import { Button } from "../../Buttons";
@@ -36,17 +43,18 @@ export function Header() {
         </Flex>
       </Navigation>
 
-      {window.location.pathname !== "/" && window.location.pathname !== "/success" && (
-        <BackButton>
-          <Button
-            secondary
-            onClick={() => {
-              goBack(-1);
-            }}>
-            Back
-          </Button>
-        </BackButton>
-      )}
+      {window.location.pathname !== "/" &&
+        window.location.pathname !== "/success" && (
+          <BackButton>
+            <Button
+              secondary
+              onClick={() => {
+                goBack(-1);
+              }}>
+              Back
+            </Button>
+          </BackButton>
+        )}
     </>
   );
 }

@@ -1,7 +1,11 @@
 import { Flex } from "../../../components";
 import { AmountContainer, Counter } from "./styles.index";
 
-export function CounterButton({ decrementCartQuantity, incrementCartQuantity, product }) {
+export function CounterButton({
+  decrementCartQuantity,
+  incrementCartQuantity,
+  product,
+}) {
   const { id, title, imageUrl, price, discountedPrice, quantity } = product;
 
   return (

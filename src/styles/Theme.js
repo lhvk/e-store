@@ -4,6 +4,7 @@ export function Theme() {
     darkBlue: "var(--clr-primary)",
     cyan: "var(--clr-secondary)",
     white: "var(--clr-tertiary)",
+    red: "var(--clr-error)",
     lighterBlue: "var(--clr-primaryLight)",
     lighterCyan: "var(--clr-secondaryLight)",
   };
@@ -20,6 +21,7 @@ export function Theme() {
       primary: palette.darkBlue,
       secondary: palette.cyan,
       tertiary: palette.white,
+      error: palette.red,
 
       primaryLight: palette.lighterBlue,
       secondaryLight: palette.lighterCyan,

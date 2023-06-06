@@ -1,5 +1,5 @@
 import { IconStarOutline, IconStarSharp } from "../../assets/svg";
-import { Flex } from "../../components/Flex";
+import { Flex } from "../Flex";
 
 const switchRating = (rating, size, reviews) => {
   switch (rating) {
@@ -193,7 +193,7 @@ const switchRating = (rating, size, reviews) => {
   }
 };
 
-export const starRating = function (rating, size, reviews) {
+export function StarRating(rating, size, reviews) {
   const noDecimal = Math.trunc(rating);
   return switchRating(noDecimal, size, reviews);
-};
+}

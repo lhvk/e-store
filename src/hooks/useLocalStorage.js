@@ -7,7 +7,9 @@ export function useLocalStorage(key, defaultValue) {
     let currentValue;
 
     try {
-      currentValue = JSON.parse(localStorage.getItem(key) || String(defaultValue));
+      currentValue = JSON.parse(
+        localStorage.getItem(key) || String(defaultValue)
+      );
     } catch (error) {
       currentValue = defaultValue;
     }

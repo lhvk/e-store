@@ -1,8 +1,13 @@
-import { Box } from "../../components/Box";
-import { Flex } from "../../components/Flex";
-import { DiscountBadge, DiscountedPrice, PrevPrice, Price } from "./index.styles";
+import { Box } from "../Box";
+import { Flex } from "../Flex";
+import {
+  DiscountBadge,
+  DiscountedPrice,
+  PrevPrice,
+  Price,
+} from "./index.styles";
 
-export const calcDiscount = function (price, discountedPrice, fontSize) {
+export function CalcDiscount(price, discountedPrice, fontSize) {
   if (discountedPrice < price) {
     let calcDiff = ((price - discountedPrice) / price) * 100;
     const diff = Math.trunc(calcDiff);
@@ -13,7 +18,9 @@ export const calcDiscount = function (price, discountedPrice, fontSize) {
           <Flex
             alignItems="center"
             gap="16px">
-            <DiscountedPrice fontSize={fontSize}>kr {discountedPrice}</DiscountedPrice>
+            <DiscountedPrice fontSize={fontSize}>
+              kr {discountedPrice}
+            </DiscountedPrice>
             <DiscountBadge>save {diff}%</DiscountBadge>
             <PrevPrice fontSize={fontSize}>kr {price}</PrevPrice>
           </Flex>
@@ -24,7 +31,9 @@ export const calcDiscount = function (price, discountedPrice, fontSize) {
     return (
       <>
         <Box>
-          <DiscountedPrice fontSize={fontSize}>kr {discountedPrice}</DiscountedPrice>
+          <DiscountedPrice fontSize={fontSize}>
+            kr {discountedPrice}
+          </DiscountedPrice>
           <DiscountBadge>save {diff}%</DiscountBadge>
         </Box>
         <Box>
@@ -39,4 +48,4 @@ export const calcDiscount = function (price, discountedPrice, fontSize) {
       <Price fontSize={fontSize}>kr {price}</Price>
     </Box>
   );
-};
+}

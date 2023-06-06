@@ -35,7 +35,8 @@ const LoadingAnimation = styled(Flex)`
     }
 
     50% {
-      box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 6px ${(props) => props.theme.color.secondary};
+      box-shadow: inset 0 0 0 2px #fff,
+        inset 0 0 0 6px ${(props) => props.theme.color.secondary};
       transform: scale(1.5);
     }
 
@@ -52,10 +53,10 @@ export function Loader() {
       justifyContent="center"
       alignItems="center"
       h="100%">
-      <div class="circle circle-1"></div>
-      <div class="circle circle-2"></div>
-      <div class="circle circle-3"></div>
-      <div class="circle circle-4"></div>
+      <div className="circle circle-1"></div>
+      <div className="circle circle-2"></div>
+      <div className="circle circle-3"></div>
+      <div className="circle circle-4"></div>
     </LoadingAnimation>
   );
 }

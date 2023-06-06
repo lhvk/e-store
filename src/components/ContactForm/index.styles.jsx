@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContactForm = styled.form`
+export const FormContainer = styled.form`
   margin: 20px;
   display: flex;
   flex-direction: column;
@@ -10,18 +10,26 @@ export const ContactForm = styled.form`
 
   p {
     font-size: 1.4rem;
-    color: #b81414;
+    color: ${(props) => props.theme.color.error};
   }
 `;
 
 export const InputField = styled.input`
   font-size: 1.8rem;
   padding: 10px;
-  border: solid 1px ${(props) => (props.isError ? "#b81414" : props.theme.color.primary)};
+  border: solid 1px
+    ${(props) =>
+      props.isError
+        ? (props) => props.theme.color.error
+        : props.theme.color.primary};
 `;
 
 export const TextField = styled.textarea`
   font-size: 1.8rem;
   padding: 10px;
-  border: solid 1px ${(props) => (props.isError ? "#b81414" : props.theme.color.primary)};
+  border: solid 1px
+    ${(props) =>
+      props.isError
+        ? (props) => props.theme.color.error
+        : props.theme.color.primary};
 `;

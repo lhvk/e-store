@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   --clr-secondary: #2ec4b6;
   --clr-tertiary: #fdfffc;
   --clr-text: #000;
+  --clr-error: #b81414;
 
   --clr-primaryLight: #012f4b;
   --clr-secondaryLight: #6adcd1;

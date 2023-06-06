@@ -20,7 +20,9 @@ export function ShoppingCartProvider({ children }) {
 
   function getCartQuantity() {
     let initialValue = 0;
-    return cart.map((product) => product.quantity).reduce((acc, curr) => acc + curr, initialValue);
+    return cart
+      .map((product) => product.quantity)
+      .reduce((acc, curr) => acc + curr, initialValue);
   }
 
   function incrementCartQuantity(id, title, imageUrl, price, discountedPrice) {
@@ -28,7 +30,17 @@ export function ShoppingCartProvider({ children }) {
 
     setCart((currentProducts) => {
       if (currentProducts.find((product) => product.id === id) == null) {
-        return [...currentProducts, { id, title, imageUrl, price: newPrice, totalPrice: newPrice, quantity: 1 }];
+        return [
+          ...currentProducts,
+          {
+            id,
+            title,
+            imageUrl,
+            price: newPrice,
+            totalPrice: newPrice,
+            quantity: 1,
+          },
+        ];
       } else {
         return currentProducts.map((product) => {
           if (product.id === id) {
@@ -50,7 +62,9 @@ export function ShoppingCartProvider({ children }) {
 
   function decrementCartQuantity(id, title, imageUrl, price) {
     setCart((currentProducts) => {
-      if (currentProducts.find((product) => product.id === id)?.quantity === 1) {
+      if (
+        currentProducts.find((product) => product.id === id)?.quantity === 1
+      ) {
         return currentProducts.filter((product) => product.id !== id);
       } else {
         return currentProducts.map((product) => {

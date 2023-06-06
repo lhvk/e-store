@@ -7,7 +7,14 @@ import { ListItem } from "./styles.index";
 import { messages } from "../../messages";
 
 export function CheckoutPage() {
-  const { cart, setCart, getCartQuantity, incrementCartQuantity, decrementCartQuantity, removeFromCart } = useShoppingCart();
+  const {
+    cart,
+    setCart,
+    getCartQuantity,
+    incrementCartQuantity,
+    decrementCartQuantity,
+    removeFromCart,
+  } = useShoppingCart();
 
   const total = cart
     .map((x) => x.totalPrice)
@@ -33,7 +40,11 @@ export function CheckoutPage() {
                       <Flex gap="20px">
                         <div style={{ width: "200px", height: "200px" }}>
                           <img
-                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                            }}
                             src={product.imageUrl}
                             alt={product.description}
                           />
@@ -41,7 +52,9 @@ export function CheckoutPage() {
 
                         <div>
                           <h2>{product.title}</h2>
-                          <p style={{ color: "rgba(0,0,0,0.55" }}>kr {product.price}</p>
+                          <p style={{ color: "rgba(0,0,0,0.55" }}>
+                            kr {product.price}
+                          </p>
                         </div>
                       </Flex>
 
