@@ -4,7 +4,7 @@ import { Button } from "../Buttons";
 import { CartItem } from "../CartItem";
 import { CounterButton } from "../CounterButton";
 import { Flex } from "../Flex";
-import { ListItem } from "./styles";
+import { ListItem } from "./index.styles";
 
 export function CartList({
   cart,
