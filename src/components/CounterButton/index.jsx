@@ -1,4 +1,4 @@
-import { Flex } from "../../../components";
+import { Flex } from "../Flex";
 import { AmountContainer, Counter } from "./styles.index";
 
 export function CounterButton({

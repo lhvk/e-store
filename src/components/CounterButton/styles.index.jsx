@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Button, Flex } from "../../../components";
+import { Button } from "../Buttons";
+import { Flex } from "../Flex";
 
 export const AmountContainer = styled(Flex)`
   color: ${(props) => props.theme.color.tertiary};

@@ -1,11 +1,16 @@
 import styled from "styled-components";
-import { Flex } from "../Flex";
 import { Box } from "../Box";
 
-export const ProductContainer = styled(Flex)`
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+export const ProductContainer = styled(Box)`
+  --min-column-size: 350px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-column-size), 1fr));
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(var(--min-column-size), 1fr));
+  }
+
+  gap: 20px;
 
   img {
     width: 100%;
@@ -18,13 +23,9 @@ export const ProductContainer = styled(Flex)`
 `;
 
 export const ProductImage = styled(Box)`
-  flex-grow: 1;
-  flex-basis: auto;
-  max-width: 600px;
+  width: 100%;
 `;
 
 export const ProductInfo = styled.article`
-  flex-grow: 1;
-  flex-basis: auto;
-  max-width: 600px;
+  width: 100%;
 `;

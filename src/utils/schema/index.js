@@ -1,4 +1,4 @@
-import { messages } from "../../../messages";
+import { messages } from "../../messages";
 import * as yup from "yup";
 
 export const schema = yup

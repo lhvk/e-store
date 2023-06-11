@@ -22,7 +22,10 @@ export function ProductPage() {
 
       <main>
         <ProductSection>
-          <ProductSpecificCard data={product} />
+          <ProductSpecificCard
+            data={product}
+            key={product.id}
+          />
         </ProductSection>
       </main>
     </>

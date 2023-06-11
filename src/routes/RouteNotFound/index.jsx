@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { messages } from "../../messages";
 
 export function RouteNotFound() {
   return (
@@ -8,7 +9,7 @@ export function RouteNotFound() {
       </Helmet>
       <main>
         <div>
-          <h1 style={{ textAlign: "center" }}>{"404: Route not found :("}</h1>
+          <h1 style={{ textAlign: "center" }}>{messages.routeNotFound}</h1>
         </div>
       </main>
     </>

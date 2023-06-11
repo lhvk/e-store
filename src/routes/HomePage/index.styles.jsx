@@ -13,3 +13,9 @@ export const ProductsListContainer = styled.ul`
   gap: 20px;
   margin-bottom: 100px;
 `;
+
+export const ListItem = styled.li`
+  margin: 0 auto;
+  max-width: 435px;
+  width: 100%;
+`;

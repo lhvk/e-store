@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { schema } from "./schema";
 import { ContactForm, Flex } from "../../components";
+import { schema } from "../../utils/schema";
 
 export function ContactPage() {
   return (

@@ -1,23 +1,22 @@
 import React from "react";
 import { messages } from "../../messages";
-import { HeroBanner, HeroContainer } from "./index.styles";
+import { HeroBanner, HeroContainer, Overlay } from "./index.styles";
 import { Button } from "../Buttons";
 
-export function Hero() {
+export function Hero({ scrollToProducts }) {
   return (
     <HeroBanner>
-      <HeroContainer
-        flexDirection="column"
-        gap="20px"
-        alignItems="center">
-        <h1>{messages.welcome}</h1>
-        <p>{messages.subTitle}</p>
-        <Button
-          primary
-          onClick={() => console.log("hey")}>
-          Explore
-        </Button>
-      </HeroContainer>
+      <Overlay>
+        <HeroContainer>
+          <h1>{messages.welcome}</h1>
+          <p>{messages.subTitle}</p>
+          <Button
+            primary
+            onClick={scrollToProducts}>
+            Explore
+          </Button>
+        </HeroContainer>
+      </Overlay>
     </HeroBanner>
   );
 }

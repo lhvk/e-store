@@ -6,6 +6,7 @@ export const DiscountBadge = styled.span`
   color: ${(props) => props.theme.color.primary};
   border-radius: 20px;
   padding: 0.15em 0.65em;
+  margin-left: 20px;
 `;
 
 export const Price = styled.span`

@@ -1,22 +1,30 @@
 import { Link } from "react-router-dom";
 import { Button, Flex } from "../../components";
+import { messages } from "../../messages";
+import { Helmet } from "react-helmet-async";
 
 export function CheckoutSuccessPage() {
   return (
-    <main>
-      <Flex
-        mt="20px"
-        flexDirection="column"
-        alignItems="center"
-        gap="10px">
-        <h1>Payment Complete</h1>
-        <p>Thank you for shopping at E-store!</p>
-        <p>Your products will ship in 1-3 business days</p>
+    <>
+      <Helmet>
+        <title>E-store | Success</title>
+      </Helmet>
 
-        <Link to={"/"}>
-          <Button secondary>Return to home</Button>
-        </Link>
-      </Flex>
-    </main>
+      <main>
+        <Flex
+          mt="20px"
+          flexDirection="column"
+          alignItems="center"
+          gap="10px">
+          <h1>Payment Complete</h1>
+          <p>{messages.thankYou}</p>
+          <p>{messages.shipping}</p>
+
+          <Link to={"/"}>
+            <Button secondary>Return to home</Button>
+          </Link>
+        </Flex>
+      </main>
+    </>
   );
 }

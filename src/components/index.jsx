@@ -1,3 +1,4 @@
+export { CounterButton } from "./CounterButton";
 export { ContactForm } from "./ContactForm";
 export { ProductSpecificCard } from "./ProductSpecificCard";
 export { ProductCard } from "./ProductCard";
@@ -10,3 +11,4 @@ export { Layout } from "./Layout";
 export { Loader } from "./Loader";
 export { Hero } from "./Hero";
 export { Search } from "./Search";
+export { CartItem } from "./CartItem";
