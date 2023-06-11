@@ -27,11 +27,13 @@ export const Button = styled(ButtonTemplate)`
   background-color: ${(props) =>
     props.secondary ? props.theme.color.secondary : null};
 
-  :hover {
-    background-color: #ddd;
-    background-color: ${(props) =>
-      props.primary ? props.theme.color.primaryLight : null};
-    background-color: ${(props) =>
-      props.secondary ? props.theme.color.secondaryLight : null};
+  @media (min-width: 450px) {
+    :hover {
+      background-color: #ddd;
+      background-color: ${(props) =>
+        props.primary ? props.theme.color.primaryLight : null};
+      background-color: ${(props) =>
+        props.secondary ? props.theme.color.secondaryLight : null};
+    }
   }
 `;

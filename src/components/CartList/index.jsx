@@ -1,4 +1,5 @@
 import { IconBin } from "../../assets/svg";
+import { useMediaQuery } from "../../hooks";
 import { Button } from "../Buttons";
 import { CartItem } from "../CartItem";
 import { CounterButton } from "../CounterButton";
@@ -11,6 +12,8 @@ export function CartList({
   decrementCartQuantity,
   removeFromCart,
 }) {
+  const isSmallerScreen = useMediaQuery("(max-width: 768px)");
+
   return (
     <ul>
       {cart.map((product) => (
@@ -19,14 +22,17 @@ export function CartList({
             <Flex
               mb="20px"
               justifyContent="space-between"
-              alignItems="flex-start">
+              alignItems="flex-start"
+              flexDirection={isSmallerScreen ? "column" : "row"}>
               <Flex gap="20px">
                 <CartItem product={product} />
               </Flex>
 
               <Flex
-                alignItems="center"
-                gap="20px">
+                w={isSmallerScreen ? "100%" : "325px"}
+                justifyContent="space-between"
+                mt={isSmallerScreen ? "10px" : 0}
+                alignItems="center">
                 <div>
                   <CounterButton
                     product={product}

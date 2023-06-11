@@ -11,8 +11,10 @@ export const CardContainer = styled.div`
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px;
 
-  &:hover .card-img {
-    transform: scale(1.25) rotate(2deg);
+  @media (min-width: 450px) {
+    &:hover .card-img {
+      transform: scale(1.25) rotate(2deg);
+    }
   }
 `;
 

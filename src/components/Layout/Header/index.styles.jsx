@@ -20,8 +20,12 @@ export const Logo = styled.div`
   letter-spacing: 1px;
   transition: 0.4s;
 
-  &:hover {
-    filter: drop-shadow(0 0 0.75rem ${(props) => props.theme.color.secondary});
+  @media (min-width: 450px) {
+    &:hover {
+      filter: drop-shadow(
+        0 0 0.75rem ${(props) => props.theme.color.secondary}
+      );
+    }
   }
 `;
 
@@ -32,12 +36,14 @@ export const ShoppingCartContainer = styled.button`
   position: relative;
   transition: 0.5s;
 
-  &:hover {
-    transform: rotate(25deg);
-    .count-badge {
-      transform: rotate(335deg);
-      bottom: 18px;
-      left: 40px;
+  @media (min-width: 450px) {
+    &:hover {
+      transform: rotate(25deg);
+      .count-badge {
+        transform: rotate(335deg);
+        bottom: 18px;
+        left: 40px;
+      }
     }
   }
 `;
