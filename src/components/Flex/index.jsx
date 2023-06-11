@@ -9,4 +9,5 @@ export const Flex = styled(Box)`
   align-items: ${(props) => props.alignItems};
   height: ${(props) => props.h};
   width: ${(props) => props.w};
+  maxwidth: ${(props) => props.maxWidth};
 `;

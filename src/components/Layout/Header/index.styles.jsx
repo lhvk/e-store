@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IconCart } from "../../../assets/svg";
+import { IconCart, IconEnvelope, IconHome } from "../../../assets/svg";
 
 export const Navigation = styled.header`
   height: 100px;
@@ -20,12 +20,36 @@ export const Logo = styled.div`
   letter-spacing: 1px;
   transition: 0.4s;
 
+  @media (max-width: 420px) {
+    font-size: 3rem;
+  }
+
   @media (min-width: 450px) {
     &:hover {
       filter: drop-shadow(
         0 0 0.75rem ${(props) => props.theme.color.secondary}
       );
     }
+  }
+`;
+
+export const HomeButton = styled(IconHome)`
+  color: ${(props) => props.theme.color.primary};
+  height: 32px;
+  width: 32px;
+`;
+
+export const ContactButton = styled(IconEnvelope)`
+  color: ${(props) => props.theme.color.primary};
+  height: 32px;
+  width: 32px;
+`;
+
+export const NavItem = styled.span`
+  font-size: 2rem;
+
+  &:hover {
+    color: ${(props) => props.theme.color.secondary};
   }
 `;
 
