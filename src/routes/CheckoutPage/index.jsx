@@ -5,6 +5,7 @@ import { messages } from "../../messages";
 import { calcTotalPrice } from "../../utils";
 import { CartList } from "../../components/CartList";
 import { useMediaQuery } from "../../hooks";
+import { Helmet } from "react-helmet-async";
 
 export function CheckoutPage() {
   const {
@@ -19,41 +20,47 @@ export function CheckoutPage() {
   const isSmallerScreen = useMediaQuery("(max-width: 768px)");
 
   return (
-    <main>
-      <section>
-        <h1>Cart</h1>
+    <>
+      <Helmet>
+        <title>{`E-store | Cart (${cart.length} items)`}</title>
+      </Helmet>
 
-        {cart.length > 0 ? (
-          <>
-            <CartList
-              cart={cart}
-              incrementCartQuantity={incrementCartQuantity}
-              decrementCartQuantity={decrementCartQuantity}
-              removeFromCart={removeFromCart}
-              isSmallerScreen={isSmallerScreen}
-            />
-            <Flex
-              justifyContent="space-between"
-              mb="20px">
-              <h3>Total products: {getCartQuantity()}</h3>
+      <main>
+        <section>
+          <h1>Cart</h1>
 
-              <h3>Total sum: kr {calcTotalPrice({ cart })}</h3>
-            </Flex>
+          {cart.length > 0 ? (
+            <>
+              <CartList
+                cart={cart}
+                incrementCartQuantity={incrementCartQuantity}
+                decrementCartQuantity={decrementCartQuantity}
+                removeFromCart={removeFromCart}
+                isSmallerScreen={isSmallerScreen}
+              />
+              <Flex
+                justifyContent="space-between"
+                mb="20px">
+                <h3>Total products: {getCartQuantity()}</h3>
 
-            <Flex justifyContent="flex-end">
-              <Link to="/success">
-                <Button
-                  primary
-                  onClick={() => setCart([])}>
-                  Proceed to checkout
-                </Button>
-              </Link>
-            </Flex>
-          </>
-        ) : (
-          <div>{messages.emptyCart}</div>
-        )}
-      </section>
-    </main>
+                <h3>Total sum: kr {calcTotalPrice({ cart })}</h3>
+              </Flex>
+
+              <Flex justifyContent="flex-end">
+                <Link to="/success">
+                  <Button
+                    primary
+                    onClick={() => setCart([])}>
+                    Proceed to checkout
+                  </Button>
+                </Link>
+              </Flex>
+            </>
+          ) : (
+            <div>{messages.emptyCart}</div>
+          )}
+        </section>
+      </main>
+    </>
   );
 }
