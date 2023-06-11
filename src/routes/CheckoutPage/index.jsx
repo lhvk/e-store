@@ -4,6 +4,7 @@ import { useShoppingCart } from "../../context/ShoppingCartContext";
 import { messages } from "../../messages";
 import { calcTotalPrice } from "../../utils";
 import { CartList } from "../../components/CartList";
+import { useMediaQuery } from "../../hooks";
 
 export function CheckoutPage() {
   const {
@@ -14,6 +15,8 @@ export function CheckoutPage() {
     decrementCartQuantity,
     removeFromCart,
   } = useShoppingCart();
+
+  const isSmallerScreen = useMediaQuery("(max-width: 768px)");
 
   return (
     <main>
@@ -27,6 +30,7 @@ export function CheckoutPage() {
               incrementCartQuantity={incrementCartQuantity}
               decrementCartQuantity={decrementCartQuantity}
               removeFromCart={removeFromCart}
+              isSmallerScreen={isSmallerScreen}
             />
             <Flex
               justifyContent="space-between"

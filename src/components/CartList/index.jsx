@@ -1,5 +1,4 @@
 import { IconBin } from "../../assets/svg";
-import { useMediaQuery } from "../../hooks";
 import { Button } from "../Buttons";
 import { CartItem } from "../CartItem";
 import { CounterButton } from "../CounterButton";
@@ -11,9 +10,8 @@ export function CartList({
   incrementCartQuantity,
   decrementCartQuantity,
   removeFromCart,
+  isSmallerScreen,
 }) {
-  const isSmallerScreen = useMediaQuery("(max-width: 768px)");
-
   return (
     <ul>
       {cart.map((product) => (
