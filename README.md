@@ -14,8 +14,12 @@ Create an e-commerce website with React js using a Noroff API to display data
 git clone https://github.com/lhvk/e-store.git
 ```
 
+### Install dependencies
+```
+npm install
+```
 
-### Build the project on your local computer
+### Build the project
 ```
 npm run build
 ```
