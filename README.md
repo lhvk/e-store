@@ -55,7 +55,7 @@ No license. No credit needed. Free to use by others.
 
 ## Acknowledgments
 
-We'd like to acknowledge the following individuals for their contributions and support. Thank you!
+I'd like to acknowledge the following individuals for their contributions and support. Thank you!
 
 - Noroff for providing API with data and images
 - [Unspash](www.unsplash.com) for the landing page image
